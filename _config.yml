@@ -27,7 +27,7 @@
 # baseurl: "/" # the subpath of your site, e.g. /blog
 title: Just the Docs
 description: A Jekyll theme for documentation
-baseurl: "/just-the-docs" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://philip-spb.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  philip-spb
@@ -35,6 +35,7 @@ github_username:  philip-spb
 # Build settings
 # theme: minima
 theme: just-the-docs
+remote_theme: pmarsceill/just-the-docs
 plugins:
   - jekyll-feed
 
