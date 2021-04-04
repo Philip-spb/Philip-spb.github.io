@@ -1,4 +1,4 @@
-title: Just the Docs
+title: Philip Pages
 description: A Jekyll theme for documentation
 baseurl: ""
 url: "https://philip-spb.github.io"
@@ -22,3 +22,5 @@ compress_html:
   startings: []
   blanklines: false
   profile: false
+
+footer_content: <a href="#top" id="back-to-top">На верх ↑</a>
