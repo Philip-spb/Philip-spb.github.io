@@ -155,7 +155,7 @@ Point(x=1, y=2)
 1
 ```
 
-# Функциональное программирование в Python: lambda, zip, filter, map reduce
+# Функциональное программирование в Python
 
 ## Lambda выражение в Python
 
