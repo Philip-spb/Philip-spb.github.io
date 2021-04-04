@@ -1,8 +1,9 @@
 ---
 layout: default
 title: "Модули Python"
-parent: "Конспекты"
-nav_order: 3
+grand_parent: "Конспекты"
+parent: "Python"
+nav_order: 1
 ---
 
 # Модули Python
