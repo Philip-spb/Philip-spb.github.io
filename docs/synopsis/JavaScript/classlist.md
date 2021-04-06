@@ -15,7 +15,8 @@ const btns = document.querySelectorAll('button');
 console.log(btns[0].classList);
 ```
 
-Методы classList:
+**Методы classList:**
+
 | Метод    | Описание                                                  |
 | -------- | --------------------------------------------------------- |
 | item     | Получаем класс под указанным номером                      |
