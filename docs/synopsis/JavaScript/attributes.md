@@ -30,6 +30,6 @@ function loadScript(src) {
     document.body.append(script);
 }
 
-loadScript("js/test.js")
-loadScript("js/some.js")
+loadScript("js/test.js");
+loadScript("js/some.js");
 ```
