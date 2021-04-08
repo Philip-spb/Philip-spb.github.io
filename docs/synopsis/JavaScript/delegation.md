@@ -16,10 +16,6 @@ nav_order: 5
     <button></button>
     <button></button>
     <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
 </div>
 ```
 
