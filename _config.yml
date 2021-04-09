@@ -10,6 +10,12 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+defaults:
+  - scope:
+      path: "assets/img"
+    values:
+      image: true
+
 kramdown:
   syntax_highlighter_opts:
     block:
