@@ -248,3 +248,260 @@ for (let key in options) {
 
 console.log(counter);
 ```
+
+## Массивы и псевдомассивы
+
+```javascript
+'use strict';
+
+// const arr = [1, 2, 3, 6, 8];
+
+// // arr.pop();                          // Удаляем последний элемент из массива
+// arr.push(10);                          // Добавляем элемент в конец масиива
+
+// // console.log(arr);
+
+// for (let n in arr) {
+//     console.log(arr[n]);
+// }
+
+// for (let value of arr) {
+//     console.log(value);
+// }
+
+// arr.forEach(function (item, id, arr) {   // Перебираем все элементы массива
+//     console.log(`${id}: ${item} внутри масиива ${arr}`);
+// });
+
+
+// Разбиваем строку на массив
+const str = prompt("", "");
+const products = str.split(", ");
+console.log(products);
+
+// Сортировка массива (всегда сортирует как строки, 
+// но мы можем указать callback функцию которая укажет как правильно сортировать)
+products.sort();
+
+// Объединяем массив в строку
+console.log(products.join('; '));
+
+
+const numberArr = [2, 13, 26, 8, 10];
+numberArr.sort(compareNum);
+console.log(numberArr);
+
+function compareNum(a, b) {
+    return a - b;
+}
+```
+
+## Передача по ссылке или по значению
+
+```javascript
+'use strict';
+
+let a = 5,
+    b = a;
+
+b = b + 5;
+
+console.log(b);
+console.log(a);
+
+const obj = {
+    a: 5,
+    b: 1
+};
+
+const copy = obj;  // Ссылка
+
+copy.a = 10;
+
+console.log(copy);
+console.log(obj);
+
+function copyFunc(mainObj){
+    let objCopy = {};
+
+    let key;
+    for(key in mainObj){
+        objCopy[key] = mainObj[key];
+    }
+
+    return objCopy;
+}
+
+const numbers = {
+    a: 2,
+    b: 5,
+    c: {
+        x: 7,
+        y: 4
+    }
+};
+
+const newNumbers = copyFunc(numbers);
+
+newNumbers.a = 10;
+newNumbers.c.x = 10;
+
+console.log(newNumbers);
+console.log(numbers);
+
+const add = {
+    d: 17,
+    e: 20
+};
+
+console.log(Object.assign(numbers, add));  // Соединение двух объектов
+const clone = Object.assign({}, add);
+
+clone.d = 20;
+
+console.log(add);
+console.log(clone);
+
+const oldArray = ['a', 'b', 'c'];
+const newArray = oldArray.slice();  // Копировани массива
+
+newArray['1'] = 'asdasdasdasdad';
+
+console.log(oldArray);
+console.log(newArray);
+
+const   video = ['youtube', 'vimeo', 'rutube'],
+        blogs = ['wordpress', 'livejournal', 'blogger'],
+        internet = [...video, ...blogs, 'vk', 'facebook'];  // Spread – оператор разворота
+
+console.log(internet);
+
+function log(a, b ,c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+
+const num = [2, 5, 7];
+
+log(...num);
+
+const array = ['a', 'b'];
+
+const newAarray = [...array];
+
+const q = {
+    one: 1,
+    two: 2
+};
+
+// const newObj = {...q};
+
+// log(newObj);
+```
+
+## ООП
+
+С примером наследования
+
+```javascript
+'use strict';
+
+let str = 'some';
+let strObj = new String(str);
+
+console.log(typeof (str));
+console.log(typeof (strObj));
+
+
+console.dir([1, 2, 3]);
+
+const solder = {
+    helth: 400,
+    armor: 100,
+    sayHello: function(){
+        console.log('Hello');
+    }
+};
+
+const john = {
+    helth: 100
+};
+
+// Устаревший формат
+
+// john.__proto__ = solder;
+
+// john.sayHello();
+
+
+// Актуальный формат
+
+Object.setPrototypeOf(john, solder);
+
+john.sayHello();
+
+const smith = Object.create(solder);
+
+smith.sayHello();
+```
+
+## Динамическая типизация
+
+Примеры преобразования типов
+
+ ```javascript
+'use strict';
+
+// To String
+
+// 1)
+// Таким способом редко пользуются
+
+console.log(typeof (String(null)));
+console.log(typeof (String(4)));
+
+// 2)
+// Конкатинация
+
+console.log(typeof (5 + ''));
+
+const num = 5;
+
+console.log("https//vk.com/catalog/" + num);
+
+const fontSize = 26 + 'px';
+
+// To Number
+
+// 1)
+console.log(typeof (Number('4')));
+
+// 2)
+// Унарный оператор +
+
+console.log(typeof (+'5'));
+
+// 3)
+console.log(typeof (Number(parseInt("15px", 10))));
+
+let answ = +prompt("Hello", "");
+
+// To boolean
+
+// Всегда будет False: 0, '', null, underfined, NaN
+// Все остальное True
+
+// 1)
+let switcher = null;
+
+if (switcher) {
+    console.log('Working...');
+}
+
+// 2)
+console.log(typeof (Boolean('4')));
+
+// 3)
+console.log(typeof (!!"234567"));
+```
