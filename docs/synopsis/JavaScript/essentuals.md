@@ -505,3 +505,20 @@ console.log(typeof (Boolean('4')));
 // 3)
 console.log(typeof (!!"234567"));
 ```
+
+## Выполнение функций при выполнении действия
+
+```javascript
+window.addEventListener('scroll', showModalByScroll);
+window.removeEventListener('scroll', showModalByScroll);
+```
+
+В данном случае функция вызывается без скобок
+
+Также выполнить действие можно таким образом:
+
+```javascript
+window.addEventListener('scroll', (event) => {
+    console.log(event.target);
+});
+```
