@@ -38,7 +38,9 @@ console.log(document.querySelector('#current').parentElement);
 
 **Чтобы не получать пустые строки необходимо использовать функции `previousElementSibling`, `parentElemen` и тп.**
 
+```javascript
 console.log(document.querySelector('[data-current="3"]').previousElementSibling);
+```
 
 ## Переберем всех потомков body за исключением пустых строк `#text`
 
