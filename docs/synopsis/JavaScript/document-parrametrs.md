@@ -46,3 +46,14 @@ window.scrollBy(0, 400);
 // Скролим на 400 пикселей вниз относительно начала страницы
 window.scrollTo(0, 400);
 ```
+
+## Плавный скрол вверх
+
+```javascript
+const moveUpInterval = setInterval(() => {
+    document.documentElement.scrollTop -= 150;
+    if (document.documentElement.scrollTop <= 0) {
+        clearInterval(moveUpInterval);
+    }
+}, 4);
+```
