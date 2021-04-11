@@ -3,7 +3,7 @@ layout: default
 title: "Классы (ES6)"
 grand_parent: "Конспекты"
 parent: "JavaScript"
-nav_order: 11
+nav_order: 12
 ---
 
 **Классы** – это красивая обертка функций конструкторов
