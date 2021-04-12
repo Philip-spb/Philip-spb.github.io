@@ -16,7 +16,6 @@ class Rectangle {
         this.height = height;
         this.width = width;
     }
-
     calcArea() {
         return this.height * this.width;
     }
@@ -24,9 +23,6 @@ class Rectangle {
 
 const square = new Rectangle(10,10);
 const long = new Rectangle(20,100);
-
-console.log(square.calcArea());
-console.log(long.calcArea());
 ```
 
 ## Наследование
