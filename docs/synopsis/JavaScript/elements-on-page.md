@@ -145,7 +145,7 @@ div.innerHTML = "<h1>Hello, World!</h1>";  // Подходит для встав
 div.insertAdjacentHTML('afterend', '<h2>Hello2</h2>'); //Первый аргумент – это специальное слово, второй – текст который мы хотим вставить
 ```
 
-Параметры для метода `insertAdjacentHTML`
+Параметры для метода `insertAdjacentHTML` и `insertAdjacentElement`
 
 | Параметр    | Описание                 |
 | ----------- | ------------------------ |
