@@ -95,3 +95,29 @@ req.then((product) => {
     console.log('finally');
 });
 ```
+
+## Метод Promise.all()
+
+Метод `all` необходим для того чтобы проверить выполнение всех условий
+
+```javascript
+const test = (time) => {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(), time);
+    });
+};
+
+Promise.all([test(1000), test(2000)]).then(()=>{
+    console.log('Test');
+});
+```
+
+## Метод Promise.race()
+
+Метод `race` запускает функцию как только выполняется хотя бы одно условие
+
+```javascript
+Promise.race([test(1000), test(2000)]).then(()=>{
+    console.log('Test');
+});
+```

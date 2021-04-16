@@ -12,7 +12,7 @@ nav_order: 18
 
 Fetch API основан на promise
 
-Пример GET запроса
+## GET запрос
 
 ```javascript
 fetch('https://jsonplaceholder.typicode.com/posts/1')
@@ -20,7 +20,7 @@ fetch('https://jsonplaceholder.typicode.com/posts/1')
     .then((json) => console.log(json));
 ```
 
-Пример POST запроса
+## POST запроса
 
 ```javascript
 fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -32,4 +32,14 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
 })
     .then((response) => response.json())
     .then((json) => console.log(json));
+```
+
+##  Методы ok и status
+
+При помощи метода `ok` можно определить что мы получили неверный ответ от сервера. При помощи `status` можно узнать точный статус ответа от сервера
+
+```javascript
+if (!res.ok) {
+    throw new Error(`COuld not fetch ${url}, status: ${res.status}`);
+}
 ```
