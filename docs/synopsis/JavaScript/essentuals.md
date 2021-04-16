@@ -249,6 +249,30 @@ for (let key in options) {
 console.log(counter);
 ```
 
+### Методы для работы с объектами
+
+Метод `entries` – преобразование объекта в массив массивов
+
+```javascript
+const obj = {
+    ivan: 'persone',
+    ann: 'persone',
+    dog: 'animal',
+    cat: 'animal'
+};
+const newArr = Object.entries(obj);
+console.log(newArr);
+```
+
+```
+[
+  [ 'ivan', 'persone' ],
+  [ 'ann', 'persone' ],
+  [ 'dog', 'animal' ],
+  [ 'cat', 'animal' ]
+]
+```
+
 ## Массивы и псевдомассивы
 
 ```javascript
