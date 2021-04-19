@@ -3,7 +3,7 @@ layout: default
 title: "Работа с localStorage"
 grand_parent: "Конспекты"
 parent: "JavaScript"
-nav_order: 19
+nav_order: 22
 ---
 
 # Работа с localStorage
