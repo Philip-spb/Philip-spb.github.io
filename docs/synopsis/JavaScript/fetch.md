@@ -43,3 +43,5 @@ if (!res.ok) {
     throw new Error(`COuld not fetch ${url}, status: ${res.status}`);
 }
 ```
+
+`throw` позволяет вывести в консоли информацию

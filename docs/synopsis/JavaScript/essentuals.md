@@ -273,6 +273,8 @@ console.log(newArr);
 ]
 ```
 
+`Object.fromEntries(data)` – Преобразует массив обратнов объект
+
 ## Массивы и псевдомассивы
 
 ```javascript
