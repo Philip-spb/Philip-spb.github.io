@@ -29,4 +29,6 @@ compress_html:
   blanklines: false
   profile: false
 
-footer_content: <a href="#top" id="back-to-top">На верх ↑</a>
+footer_content: |
+  <a href="#top" id="back-to-top">На верх ↑</a>
+  <script src="/assets/js/script.js"></script>
