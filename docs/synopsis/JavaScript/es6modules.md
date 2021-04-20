@@ -50,4 +50,4 @@ export default function sayHi() {
 import sayHi from './main';
 ```
 
-Экспорт по умолчанию может быть только один
+Экспорт по умолчанию может быть только один.
