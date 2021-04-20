@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Инкапсуляция"
-grand_parent: "Геттеры и сеттеры"
+grand_parent: "Конспекты"
 parent: "JavaScript"
 nav_order: 25
 ---

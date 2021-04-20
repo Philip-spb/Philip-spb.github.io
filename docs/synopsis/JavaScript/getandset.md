@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Регулярные выражения"
-grand_parent: "Геттеры и сеттеры"
+title: "Геттеры и сеттеры"
+grand_parent: "Конспекты"
 parent: "JavaScript"
 nav_order: 24
 ---
@@ -23,6 +23,7 @@ const persone = {
         this.age = num;
     }
 };
+
 console.log(persone.userAge);
 console.log(persone.userAge = 30);
 ```

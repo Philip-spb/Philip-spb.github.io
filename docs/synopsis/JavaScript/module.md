@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Прием модуль"
-grand_parent: "Геттеры и сеттеры"
+grand_parent: "Конспекты"
 parent: "JavaScript"
 nav_order: 26
 ---
