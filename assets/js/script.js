@@ -1,13 +1,13 @@
 'use strict';
 
 function setDarkTheme() {
-    var cssFile = document.querySelector('[rel="stylesheet"]');
+    const cssFile = document.querySelector('[rel="stylesheet"]');
     cssFile.setAttribute('href', '/assets/css/just-the-docs-dark.css');
     localStorage.setItem('darkTheme', true);
 }
 
 function setLightTheme() {
-    var cssFile = document.querySelector('[rel="stylesheet"]');
+    const cssFile = document.querySelector('[rel="stylesheet"]');
     cssFile.setAttribute('href', '/assets/css/just-the-docs-light.css');
     localStorage.removeItem('darkTheme');
 }
