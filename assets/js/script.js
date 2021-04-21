@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
             darkTheme = false;
         } else {
             setDarkTheme();
-            darkTheme = true;  
+            darkTheme = true;
         }
     });
     const searchField = document.querySelector('.search-input');
