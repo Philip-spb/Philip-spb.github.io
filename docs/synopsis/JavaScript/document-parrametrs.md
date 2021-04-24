@@ -16,7 +16,7 @@ console.dir(window)
 console.dir(screen)
 ```
 
-![Стандартные свойства объектов](/assets/images/metric-all.png){: .open-modal}
+![Стандартные свойства объектов](/assets/images/metric-all.png)
 
 `scrollTop` – Определяем сколько пикселей мы уже "пролистали"
 
