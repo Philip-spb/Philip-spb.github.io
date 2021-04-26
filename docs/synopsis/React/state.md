@@ -10,7 +10,7 @@ nav_order: 7
 
 ## Свойства
 
-Свойства в компонент передаются при помощи объекта `props`.
+Свойства в компонент передаются при помощи объекта `props`:
 
 ```js
 import React from 'react';
@@ -26,7 +26,7 @@ function WhoAmI(props) {
 ReactDOM.render(<WhoAmI name="John" surname="Smith" link="http://facebook.com" />, document.getElementById('root'));
 ```
 
-Либо можно воспользоваться деструктуризацией:
+Можно воспользоваться деструктуризацией:
 
 ```js
 import React from 'react';
@@ -42,7 +42,7 @@ function WhoAmI({name, surname, link}) {
 ReactDOM.render(<WhoAmI name="John" surname="Smith" link="http://facebook.com" />, document.getElementById('root'));
 ```
 
-Также можно переписать компонент используя классы
+Также можно переписать компонент используя классы:
 
 ```js
 class WhoAmI extends Component {
@@ -63,7 +63,7 @@ class WhoAmI extends Component {
 
 Значения установленных атрибутов более устанавливать нельзя.
 
-## События
+## Состояния
 
 Состояния записываются в параметре `state`. Для изменения состояния необходимо использовать функцию как обработчик события.
 
