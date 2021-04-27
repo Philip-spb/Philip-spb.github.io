@@ -57,3 +57,16 @@ const arr = [4, 5, 1, 3, 2, 6];
 const res = arr.reduce((sum, current) => sum + current);
 ```
 
+## findIndex
+
+Данный метод позволяет определить порядковый номер в массиве элемента удовлетворяющего определенному параметру.
+
+```javascript
+data = [
+    { label: 'One', important: true, id: 'asas' },
+    { label: 'Two', important: false, id: 'dsdsd' },
+    { label: 'Three', important: false, id: 'jhjh' }
+]
+const index = data.findIndex(elem => elem.id === 'dsdsd');
+console.log(index);
+```
