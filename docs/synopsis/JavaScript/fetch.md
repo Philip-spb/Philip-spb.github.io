@@ -39,8 +39,9 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
 При помощи метода `ok` можно определить что мы получили неверный ответ от сервера. При помощи `status` можно узнать точный статус ответа от сервера
 
 ```javascript
+const res = await fetch(url);
 if (!res.ok) {
-    throw new Error(`COuld not fetch ${url}, status: ${res.status}`);
+    throw new Error(`Could not fetch ${url}, status: ${res.status}`);
 }
 ```
 
