@@ -20,39 +20,39 @@ nav_order: 4
 
 [Неплохое руководство](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes-ru)
 
-|Команда|Описание|
-|---|---|
-|`docker ps`|Посмотреть все запущенные образы|
-|`docker build -t web-hello .`|Создание контейнера|
-|`docker run --rm -p 8080:8080 web-hello`|Вызов контейнера. Параметр -rm указывает на то что контейнер должен удалиться после работы|
-|`docker run --rm -p 8080:8080 -e TZ=Europe/Moscow -v /Users/philip/PycharmProjects/docker-web-hello-world/resources:/usr/src/app/resources web-hello`|Вызов контейнера с монтированием локальной папки|
-|`docker vloume create NAME`|Создаем Volume для хранения данных|
-|`docker run --rm -p 8080:8080 -e TZ=Europe/Moscow -v web:/usr/src/app/resources web-hello`|Вызов контейнера с монтированием локальной папки к созданному volume|
-|`docker rm -f $(docker ps -a -q)`|Удалить все контейнеры|
-|`docker exec -i -t 04b9b377f8aa bash`|Подключение к существующему контейнеру с ID 04b9b377f8aa|
+| Команда                                                                                                                                               | Описание                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `docker ps`                                                                                                                                           | Посмотреть все запущенные образы                                                           |
+| `docker build -t web-hello .`                                                                                                                         | Создание контейнера                                                                        |
+| `docker run --rm -p 8080:8080 web-hello`                                                                                                              | Вызов контейнера. Параметр -rm указывает на то что контейнер должен удалиться после работы |
+| `docker run --rm -p 8080:8080 -e TZ=Europe/Moscow -v /Users/philip/PycharmProjects/docker-web-hello-world/resources:/usr/src/app/resources web-hello` | Вызов контейнера с монтированием локальной папки                                           |
+| `docker vloume create NAME`                                                                                                                           | Создаем Volume для хранения данных                                                         |
+| `docker run --rm -p 8080:8080 -e TZ=Europe/Moscow -v web:/usr/src/app/resources web-hello`                                                            | Вызов контейнера с монтированием локальной папки к созданному volume                       |
+| `docker rm -f $(docker ps -a -q)`                                                                                                                     | Удалить все контейнеры                                                                     |
+| `docker exec -i -t 04b9b377f8aa bash`                                                                                                                 | Подключение к существующему контейнеру с ID 04b9b377f8aa                                   |
 
 # Docker Images
 
-|Команда|Описание|
-|---|---|
-|`docker images -a`|Вывести список всех доступных образов|
-|`docker rmi 768307cdb962`|Удалить образ с ID 768307cdb962|
-|`docker rmi $(docker images -a -q)`|Удалить все образы из системы|
+| Команда                             | Описание                              |
+| ----------------------------------- | ------------------------------------- |
+| `docker images -a`                  | Вывести список всех доступных образов |
+| `docker rmi 768307cdb962`           | Удалить образ с ID 768307cdb962       |
+| `docker rmi $(docker images -a -q)` | Удалить все образы из системы         |
 
 # Docker Volumes
 
-|Команда|Описание|
-|---|---|
-|`docker volume ls`|Вывпсти список всех Volume|
-|`docker volume rm $(docker volume ls -q)`|Удалить вссе созданные Volume|
+| Команда                                   | Описание                      |
+| ----------------------------------------- | ----------------------------- |
+| `docker volume ls`                        | Вывпсти список всех Volume    |
+| `docker volume rm $(docker volume ls -q)` | Удалить вссе созданные Volume |
 
 # Docker Hub
 
-|Команда|Описание|
-|---|---|
-|`docker build -t philipspb/web-hello .`|Созданение репозитория для docker hub|
-|`docker login`|Перед пушкм в репозиторий необходимо в него залогиниться|
-|`docker push philipspb/web-hello`|Выгрузка нашего образа на docker hub|
+| Команда                                 | Описание                                                 |
+| --------------------------------------- | -------------------------------------------------------- |
+| `docker build -t philipspb/web-hello .` | Созданение репозитория для docker hub                    |
+| `docker login`                          | Перед пушкм в репозиторий необходимо в него залогиниться |
+| `docker push philipspb/web-hello`       | Выгрузка нашего образа на docker hub                     |
 
 # Docker Compose
 
@@ -98,10 +98,10 @@ mongodb:
 	restart: always
 ```
 
-|Команда|Описание|
-|---|---|
-|`docker-compose build`|Собираем образ|
-|`docker-compose up -d`|Запускаем контейнер|
+| Команда                | Описание            |
+| ---------------------- | ------------------- |
+| `docker-compose build` | Собираем образ      |
+| `docker-compose up -d` | Запускаем контейнер |
 
 Пример файла docker-compose.yaml для созданного образа:
 
