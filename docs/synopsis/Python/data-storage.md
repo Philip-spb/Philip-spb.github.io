@@ -28,7 +28,6 @@ class PartData:
     colorant_index: str = ''
     unit: int = 0
 	
-	
 PartData(
 	description=snmp_data.get('description', ''),
 	serial_number=snmp_data.get('serial_number', ''),
@@ -41,7 +40,6 @@ PartData(
 	colorant_index=snmp_data.get('colorant_index', '0'),
 	unit=as_int(snmp_data.get('unit', 0)),
     )
-	
 ```
 
 ### Enum
