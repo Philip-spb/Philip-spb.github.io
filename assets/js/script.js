@@ -68,8 +68,9 @@ window.addEventListener('DOMContentLoaded', () => {
     mainContentWrap.append(modal);
 
     modal.addEventListener('click', () => {
-        console.log(modal.style.display);
+        // console.log(modal.style.display);
         modal.style.display = "none";
+        document.body.style.overflow = '';
     });
 
     // Реализую открытие изображений при клике по нему
@@ -81,6 +82,7 @@ window.addEventListener('DOMContentLoaded', () => {
             // console.log(modal.style.display);
             modalImg.src = e.target.src;
             modal.style.display = "block";
+            document.body.style.overflow = 'hidden';
         }
     });
 });
