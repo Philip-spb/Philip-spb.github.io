@@ -16,4 +16,3 @@ nav_order: 9
 | Компонент обновляется            | `componentDidUpdate(prevProps, prevState)` | Когда изменяем props или state. prevProps и  prevState - это предыдущие значения |
 | Компонент был удален             | `componentWillUnmount()`                   |                                                                                  |
 | Произошла ошибка                 | `componentDidCatch()`                      |                                                                                  |
-
