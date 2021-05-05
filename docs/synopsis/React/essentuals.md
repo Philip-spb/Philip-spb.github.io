@@ -59,3 +59,51 @@ export default PostSatusFilter;
 ```js
 import img from './error.jpg';
 ```
+
+## Параметры (property) по умолчанию
+
+Данная конструкция позволит установить значения props по умолчанию.
+
+```js
+ComponentName.defaultProps = {
+    onItemSelected: () => {}
+}
+```
+
+## Проверка типа property
+
+[Проверка типов с помощью PropTypes](https://ru.reactjs.org/docs/typechecking-with-proptypes.html)
+
+```js
+ComponentName.propTypes = {
+    interval: (props, propName, componentName) => {
+        const value = props[propName];
+
+        if (typeof value === 'number' && !isNaN(value)) {
+            return null
+        }
+
+        return new TypeError(`${componentName}: ${propName} должен быть числом`);
+    }
+}
+```
+
+| Название аргумента | Описание                   |
+| ------------------ | -------------------------- |
+| props              | Список всех property       |
+| propName           | Имя определенного property |
+| componentName      | Имя компонента             |
+
+
+## Библиотека prop-types
+
+`npm install prop-types`
+
+
+```js
+import propTypes from 'prop-types'
+ComponentName.propTypes = {
+    interval: propTypes.number
+}
+```
+Данный метод проерит параметр на соответствие необходимому типу аналогично предыдущему примеру.
