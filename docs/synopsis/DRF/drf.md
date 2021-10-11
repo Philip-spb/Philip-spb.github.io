@@ -8,7 +8,7 @@ nav_order: 1
 
 # Обработка исключений
 
-[Пользовательский обработчик исключений](https://www.django-rest-framework.org/api-guide/exceptions/&usg=ALkJrhi7o09Ag2jtPGlWirP1RhiFxDGa0Q#custom-exception-handling)
+[Пользовательский обработчик исключений](https://www.django-rest-framework.org/api-guide/exceptions/)
 
 ```py
 from rest_framework.views import exception_handler
