@@ -55,7 +55,7 @@ list2 = copy.deepcopy(list1)
 
 В противном случае при редактировании элемента с индексом 1 мы изменим его во всех списках
 
-## Работа с множествами
+## Работа со множествами
 
 Удаление элемента из множества
 
@@ -86,4 +86,46 @@ set3 = set1.copy()  # копирование множества
 ```py
 my_set = {1, 2, 3}
 frozen_set = frozenset(my_set)
+```
+
+## Работа со словарями
+
+Создание словаря с ключами из итерабельного объекта
+
+```py
+my_list = [1, 2, 3]
+my_dict = dict.fromkeys(my_list)
+# {1: None, 2: None, 3: None}
+```
+
+Преобразование словаря в список
+
+```py
+my_dict = {1: 111, 2: 222, 3: 333}
+
+print(my_dict.keys())  # [1, 2, 3]  – список ключей
+print(my_dict.values())  # [111, 222, 333]  – список значений
+print(my_dict.items())  # [(1, 111), (2, 222), (3, 333)]
+```
+
+###  Упорядоченный словарь OrderedDict
+
+```py
+from collections import OrderedDict
+ordered_dict = OrderedDict.fromkeys('abcde')
+print(ordered_dict)
+
+for i, key in enumerate(ordered_dict):
+  ordered_dict[key] = i
+
+# Элементы хранятся в том же порядке в котором добавлялись в словарь
+print(ordered_dict)
+
+# OrderedDict([('a', None), ('b', None), ('c', None), ('d', None), ('e', None)])
+# OrderedDict([('a', 0), ('b', 1), ('c', 2), ('d', 3), ('e', 4)])
+
+ordered_dict.move_to_end('a')  # передвигаем элемент с указанным ключем в конец
+print(ordered_dict)
+
+# OrderedDict([('b', 1), ('c', 2), ('d', 3), ('e', 4), ('a', 0)])
 ```
