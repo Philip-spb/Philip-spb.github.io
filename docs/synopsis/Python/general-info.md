@@ -129,3 +129,18 @@ print(ordered_dict)
 
 # OrderedDict([('b', 1), ('c', 2), ('d', 3), ('e', 4), ('a', 0)])
 ```
+
+## Генераторы
+
+Пример реализации генератора чисел Фибоначчи до end не включая
+
+```py
+def fibonachi_generator(end):
+    f0 = f1 = 1
+    while f0 < end:
+        yield f0
+        f0, f1 = f1, f0+f1
+
+for num in fibonachi_generator(100):
+    print(num)
+```
