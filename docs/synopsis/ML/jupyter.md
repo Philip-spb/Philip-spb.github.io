@@ -55,3 +55,16 @@ drive.mount('/content/drive')
 ```
 
 При переходе по ссылке необходимо получить код и вставить его в соответствующее окно
+
+Для установки необходимых библиотек в Google Colab необходимо выполнить следующий код
+
+```py
+!pip install gTTS
+```
+
+```py
+from gtts import gTTS
+
+tts = gTTS('Hello!')
+tts.save('/content/drive/My Drive/Colab Notebooks/hello.mp3')
+```
