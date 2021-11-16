@@ -68,3 +68,12 @@ from gtts import gTTS
 tts = gTTS('Hello!')
 tts.save('/content/drive/My Drive/Colab Notebooks/hello.mp3')
 ```
+
+Использование собственных модулей
+
+```py
+path = "path/to/directory/"
+
+import sys
+sys.path.append(path)
+```
