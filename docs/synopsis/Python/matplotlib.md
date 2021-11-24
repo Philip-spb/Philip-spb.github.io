@@ -109,3 +109,68 @@ axes[1].plot(y, x, 'g')
 ```
 
 ![График 7](/assets/images/plt7.png)
+
+## Рисование 3D графиков функций
+
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+from mpl_toolkits import mplot3d
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+zline = np.linspace(0,15,1000)
+xline = np.sin(zline)
+yline = np.cos(zline)
+ax.plot(xline, yline, zline, 'gray')
+zdata = 15 * np.random.random(100)
+xdata = np.sin(zdata) + 0.1 * np.random.rand(100)
+ydata = np.cos(zdata) + 0.1 * np.random.rand(100)
+ax.scatter(xdata, ydata, zdata, c=zdata, cmap='Greens')
+ax.text2D(0.1, 0.9, 'Линия, заданная параметрически $x=\sin(z); y=cos(z)$', 
+          transform=ax.transAxes)
+```
+
+![График 8](/assets/images/plt8.png)
+
+
+```py
+from matplotlib import cm
+
+def f(x,y):
+  return np.sin(np.sqrt(x**2 + y**2))
+
+x = np.linspace(-6, 6, 30)
+y = np.linspace(-6, 6, 30)
+X,Y = np.meshgrid(x,y)
+Z = f(X,Y)
+fig, ax = plt.subplots(figsize=(8,6))
+surf = ax.contourf(X,Y,Z, 30, cmap=plt.cm.Spectral)
+ax.set_xlabel('x'); ax.set_ylabel('y')
+ax.text(0.0, 0.0, '$(0,0)$', color='black')
+fig.suptitle('Линия уровня функции $\sin {\sqrt {x^2 + y^2}}$', y=0)
+fig.colorbar(surf, shrink=0.9, aspect=5)
+fig.show()
+```
+
+![График 9](/assets/images/plt9.png)
+
+## Рисование контурных графиков z(x,y) в 3D
+
+```py
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+ax.contour3D(X, Y, Z, 50, cmap='binary')
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.set_zlabel('z')
+fig.show()
+```
+
+![График 10](/assets/images/plt10.png)
+
+Если угол обзора не оптимален, мы можем задать требуемый угол зрения, образованнный с плоскостью XOY и азимутальный угол вращения XOY относительно оси OZ
+
+```py
+ax.view_init(60,30)
+```
