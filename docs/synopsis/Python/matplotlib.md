@@ -174,3 +174,44 @@ fig.show()
 ```py
 ax.view_init(60,30)
 ```
+
+## Сеточный график
+
+```py
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+ax.plot_wireframe(X, Y, Z, color='black')
+```
+
+![График 11](/assets/images/plt11.png)
+
+## Цветоной сеточный график
+
+```py
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+surf = ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap='viridis', 
+                       edgecolor='black')
+fig.colorbar(surf, shrink=0.6, aspect=5)
+ax.set_title('surface')
+fig.show()
+```
+
+![График 12](/assets/images/plt12.png)
+
+ ## Сохранение графиков и чтение их из файла
+
+ ```py
+dirname = '/content/drive/My Drive/Colab Notebooks/COMP_MATH/1_4 Numpy/'
+fig.savefig(dirname+'plot3d.png')
+```
+
+## Чтение графиков из файла
+
+```py
+with open(dirname+'plot3d.png', 'rb') as plot_file:
+  plot_img = plt.imread(plot_file)
+
+plt.imshow(plot_img)
+plt.show()
+```
