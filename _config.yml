@@ -32,3 +32,4 @@ compress_html:
 footer_content: |
   <a href="#top" id="back-to-top">На верх ↑</a>
   <script src="/assets/js/script.js"></script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
