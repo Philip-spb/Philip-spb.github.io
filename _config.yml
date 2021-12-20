@@ -1,7 +1,7 @@
 title: Philip Pages
 description: A Jekyll theme for documentation
-# baseurl: ""
-baseurl: "/guidelines"
+baseurl: ""
+# baseurl: "/guidelines"
 url: "https://philip-spb.github.io"
 github_username: philip-spb
 
@@ -33,4 +33,4 @@ compress_html:
 
 footer_content: |
   <a href="#top" id="back-to-top">На верх ↑</a>
-  # <script src="/assets/js/script.js"></script>
+  <script src="/assets/js/script.js"></script>
