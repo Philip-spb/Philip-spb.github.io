@@ -7,3 +7,5 @@ nav_order: 1
 ---
 
 # Машинное обучение
+
+[Онлайн визуальный редактор MathML](http://visualmatheditor.equatheque.net/VisualMathEditor.html)
