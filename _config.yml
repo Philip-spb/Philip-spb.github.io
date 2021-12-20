@@ -1,12 +1,11 @@
 title: Philip Pages
 description: A Jekyll theme for documentation
 baseurl: ""
-# baseurl: "/guidelines"
 url: "https://philip-spb.github.io"
 github_username: philip-spb
 
 theme: just-the-docs
-remote_theme: pmarsceill/just-the-docs@v0.2.8
+remote_theme: pmarsceill/just-the-docs@v0.3.3
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
