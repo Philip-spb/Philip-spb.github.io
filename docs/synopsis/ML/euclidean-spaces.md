@@ -8,6 +8,29 @@ nav_order: 6
 
 # Евклидовы пространства
 
+## Нормы векторов
+
+**Единчная норма**
+
+$$ \left\|x\right\| _{1} =\sum\limits_{i=1}^{n}{\left|x_{i} \right| } $$
+
+**"Квадратическая" или "евклидова" норма**
+
+длина вектора
+
+$$ \left\|x\right\| _{2} =\sqrt{\sum\limits_{i=1}^{n}{x_{i}^{2} } } $$
+
+**Бесконечня норма**
+
+$$ \left\|x\right\| _{\infty } = \underset{i=1,...,n}{\max} \left|x_{i} \right|  $$
+
+```py
+A = np.array([1,2])
+print(np.linalg.norm(A, ord=1))  # 3.0
+print(np.linalg.norm(A, ord=2))  # 2.23606797749979
+print(np.linalg.norm(A, ord=np.inf))  # 2.0
+```
+
 ## Меры сходства векторов
 
 ### Kernel-similarity
