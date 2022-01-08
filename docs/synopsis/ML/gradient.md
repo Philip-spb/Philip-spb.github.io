@@ -46,7 +46,7 @@ x = np.linspace(-3, 3, 20)
 y = np.linspace(-3, 3, 20)
 X,Y = np.meshgrid(x,y)
 f = lambda x,y: x**2 + 4*y**2 +x
-g = lambda x,y: np.array([x+1, 8*y])
+g = lambda x,y: np.array([2*x+1, 8*y])
 Z = f(X,Y)
 
 # Определим точку (x0, y0)
