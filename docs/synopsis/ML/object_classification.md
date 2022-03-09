@@ -37,7 +37,7 @@ class KNeighborsClassificator:
         return y_test
 
 file_name = "file.csv"
-csv_file_path = dir_path + course_file_name
+csv_file_path = dir_path + file_name
 data = pd.read_csv(csv_file_path, sep=';')
 
 XY = data.values
