@@ -66,3 +66,65 @@ print(f'Матрица соответсвия: \n {metrics.confusion_matrix(y_te
 
 ![confusion matrix](/assets/images/plt18.png)
 
+## Классификация при помощи логистической регрессии
+
+Также добавим предикторы и шкалирование
+
+```py
+from sklearn.linear_model import LogisticRegression
+
+class LogregClassificator:
+  def __init__(self, C=1.0, random_state=42):
+    self.log_reg = LogisticRegression(C=C, random_state=random_state)
+    self._model = None
+    self._scaler = MinMaxScaler()
+
+  def get_model(self):
+    return self._model
+
+  def __extend_data__(self, X):
+    """
+    Добавление предикторов
+    """
+    nn = X.shape[1]
+    Xnew = X.copy()
+    for i in range(nn-1):
+      for j in range(i, nn):
+        Xnew = np.hstack([Xnew, (X[:,i]*X[:,j]).reshape((len(X),1)) ])
+    Xnew = np.hstack([Xnew, (X[:,nn-1]*X[:,nn-1]).reshape((len(X),1)) ])
+    return Xnew
+
+  def fit(self, X_train, y_train):
+    Xnew_train = self.__extend_data__(X_train)
+    self._scaler.fit(Xnew_train)
+    Xnew_train = self._scaler.transform(Xnew_train)
+    self._model = self.log_reg.fit(Xnew_train, y_train)
+
+  def predict(self, X_test):
+    Xnew_test = self.__extend_data__(X_test)
+    Xnew_test = self._scaler.transform(Xnew_test)
+    y_test = self._model.predict(Xnew_test)
+    return y_test
+
+log_reg = LogregClassificator(C=0.1)
+log_reg.fit(x_train, y_train)
+model = log_reg.get_model()
+
+print('a0=', model.intercept_)
+# a0= [-3.34]
+print(model.coef_)
+# [[0.26 0.29 0.49 0.39 0.15 0.16 0.33 0.2  0.13 0.29 0.17 0.4  0.26 0.32]]
+
+y_predicted = log_reg.predict(x_test)
+
+print(f'Точность на обучающей выборке= {metrics.accuracy_score(y_train, log_reg.predict(x_train))}')
+print(f'Точность на обучающей выборке= {metrics.accuracy_score(y_test, y_predicted)}')
+# Точность на обучающей выборке= 0.678343949044586
+# Точность на обучающей выборке= 0.6925925925925925
+
+print(f'Матрица соответсвия: \n {metrics.confusion_matrix(y_test, y_predicted)}')
+
+# Матрица соответсвия: 
+#  [[148  37]
+#  [ 46  39]]
+```
