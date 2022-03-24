@@ -313,3 +313,37 @@ Ax Ay Bx By Cx Cy Dx Dy
 >>> list(zip_longest('ABCD', 'xy', fillvalue='-'))
 Ax By C- D-
 ```
+
+# Модуль inspect
+
+Данный модуль позволяет показать все челны класса. 
+
+```py
+import inspect
+import collections
+from pprint import pprint
+
+pprint(inspect.getmembers(collections.Counter, inspect.isfunction))
+
+# [('__add__', <function Counter.__add__ at 0x7fc9857c78b0>),
+#  ('__and__', <function Counter.__and__ at 0x7fc9857c7a60>),
+#  ('__delitem__', <function Counter.__delitem__ at 0x7fc9857c70d0>),
+#  ('__iadd__', <function Counter.__iadd__ at 0x7fc9857c7ca0>),
+#  ('__iand__', <function Counter.__iand__ at 0x7fc9857c7e50>),
+#  ('__init__', <function Counter.__init__ at 0x7fc9857c4dc0>),
+#  ('__ior__', <function Counter.__ior__ at 0x7fc9857c7dc0>),
+#  ('__isub__', <function Counter.__isub__ at 0x7fc9857c7d30>),
+#  ('__missing__', <function Counter.__missing__ at 0x7fc9857c4d30>),
+#  ('__neg__', <function Counter.__neg__ at 0x7fc9857c7b80>),
+#  ('__or__', <function Counter.__or__ at 0x7fc9857c79d0>),
+#  ('__pos__', <function Counter.__pos__ at 0x7fc9857c7af0>),
+#  ('__reduce__', <function Counter.__reduce__ at 0x7fc9857ac310>),
+#  ('__repr__', <function Counter.__repr__ at 0x7fc9857c7040>),
+#  ('__sub__', <function Counter.__sub__ at 0x7fc9857c7940>),
+#  ('_keep_positive', <function Counter._keep_positive at 0x7fc9857c7c10>),
+#  ('copy', <function Counter.copy at 0x7fc9857acdc0>),
+#  ('elements', <function Counter.elements at 0x7fc9857c4c10>),
+#  ('most_common', <function Counter.most_common at 0x7fc9857c4ca0>),
+#  ('subtract', <function Counter.subtract at 0x7fc9857c4a60>),
+#  ('update', <function Counter.update at 0x7fc9857c4af0>)]
+```
