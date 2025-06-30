@@ -6,15 +6,14 @@ parent: "NGINX"
 nav_order: 2
 ---
 
-# Развертывание приложений Python Wsgi с помощью Gunicorn на основе Nginx
-
+# Развертывание приложений Python WSGI с помощью Gunicorn на основе Nginx
 
 # Простейший вариант
 ## Файл конфигурации Nginx
 
 Название файла (например) `test.conf`
 
-```
+```bash
 server {
     listen  80;
     server_name 127.0.0.1;
@@ -56,7 +55,7 @@ def application(env, start_response):
 
 ## Файл конфигурации Nginx
 
-```
+```bash
 server {
     listen  80;
     server_name mynewproject.ru;
@@ -83,6 +82,7 @@ server {
 ```
 
 Также в `/etc/hosts` нужно указать название нашего тестового домена `mynewproject.ru`
-```
+
+```bash
 127.0.0.1 mynewproject.ru
 ```
