@@ -73,3 +73,9 @@ Detailed information about a Pod:
 ```bash
 kubectl describe pod my-pod
 ```
+
+Delete a Pod:
+
+```bash
+kubectl delete pod my-pod
+```
