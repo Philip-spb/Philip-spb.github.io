@@ -75,3 +75,8 @@ This command will scale the Replicaset to 6 replicas, creating or deleting pods 
 kubectl scale --replicas=6 rs myapp-replicaset
 ```
 This command will also scale the Replicaset named `myapp-replicaset` to 6 replicas, similar to the previous command but using the `rs` resource type directly.
+
+```bash
+kubectl edit rs myapp-replicaset  
+```
+This command will open the Replicaset definition in an editor, allowing you to modify its properties. After saving and closing the editor, Kubernetes will apply the changes to the Replicaset.
