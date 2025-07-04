@@ -3,7 +3,7 @@ layout: default
 title: "K8S definition file"
 grand_parent: "Конспекты"
 parent: "K8S"
-nav_order: 1
+nav_order: 3
 ---
 
 # K8S Definition File
@@ -78,4 +78,16 @@ Delete a Pod:
 
 ```bash
 kubectl delete pod my-pod
+```
+
+Extract the definition to a file:
+
+```bash
+kubectl get pod my-pod -o yaml > my-pod-new.yaml
+```
+
+Modify the properties of the pod:
+
+```bash
+kubectl edit pod my-pod
 ```
