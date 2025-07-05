@@ -91,3 +91,8 @@ Modify the properties of the pod:
 ```bash
 kubectl edit pod my-pod
 ```
+## Run a Pod without a definition file
+```bash
+kubectl run my-pod --image=my-image
+```
+This command will create a Pod named `my-pod` using the specified image `my-image`. This is a quick way to create a Pod without needing to write a full definition file.
