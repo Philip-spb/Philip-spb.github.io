@@ -96,3 +96,8 @@ kubectl edit pod my-pod
 kubectl run my-pod --image=my-image
 ```
 This command will create a Pod named `my-pod` using the specified image `my-image`. This is a quick way to create a Pod without needing to write a full definition file.
+
+```bash
+kubectl replace --force -f my-pod.yaml
+```
+This command will replace the existing Pod with the definition provided in the `my-pod.yaml` file. The `--force` flag is used to delete the existing Pod and create a new one with the updated definition. This is useful for updating the Pod configuration without deleting it first.
