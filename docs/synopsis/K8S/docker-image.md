@@ -59,6 +59,6 @@ spec:
 This YAML file defines a Pod that runs an Ubuntu container. The `command` and `args` fields specify the command to run inside the container. In this case, it runs `sleep 10`, which means the container will sleep for 10 seconds before exiting.
 
 ```bash
-kubectl run ubuntu-sleeper-pod --image=ubuntu-sleeper --command -- sleep2.0 10
+kubectl run ubuntu-sleeper-pod --image=ubuntu-sleeper --command sleep2.0 -- 10
 ```
 This command creates the same Pod as defined in the YAML file. The `--command` flag indicates that the command to run is specified, and `sleep2.0 10` is the command and its argument. This will create a Pod named `ubuntu-sleeper-pod` that runs the `sleep` command for 10 seconds.
