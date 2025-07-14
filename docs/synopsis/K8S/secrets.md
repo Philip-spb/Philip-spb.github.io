@@ -6,7 +6,7 @@ parent: "K8S"
 nav_order: 10
 ---
 
-# secrets
+# Secrets
 ## Create a Secret from Literal Values
 
 ```bash
@@ -41,6 +41,12 @@ kubectl create -f secret-data.yaml
 ```bash
 echo -n "myuser" | base64 # Output: bXl1c2Vy
 echo -n "mypassword" | base64 # Output: bXlwYXNzd29yZA==
+```
+
+*decode the base64 encoded values:*
+```bash
+echo "bXl1c2Vy" | base64 --decode # Output: myuser
+echo "bXlwYXNzd29yZA==" | base64 --decode # Output: mypassword
 ```
 
 ## Secret in Pod Definition

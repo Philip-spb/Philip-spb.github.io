@@ -101,3 +101,25 @@ This command will create a Pod named `my-pod` using the specified image `my-imag
 kubectl replace --force -f my-pod.yaml
 ```
 This command will replace the existing Pod with the definition provided in the `my-pod.yaml` file. The `--force` flag is used to delete the existing Pod and create a new one with the updated definition. This is useful for updating the Pod configuration without deleting it first.
+
+
+## Exec
+```bash
+kubectl exec -it my-pod -- /bin/bash
+```
+This command will open an interactive terminal session inside the `my-pod` Pod, allowing you to run commands within the container.
+
+```bash
+kubectl exec my-pod -- ls /app
+```
+This command will execute the `ls /app` command inside the `my-pod` Pod and display the output.
+
+```bash
+kubectl exec my-pod -- cat /etc/hosts
+```
+This command will display the contents of the `/etc/hosts` file inside the `my-pod` Pod.
+
+```bash
+kubectl exec my-pod -- env
+```
+This command will display the environment variables set in the `my-pod` Pod.
