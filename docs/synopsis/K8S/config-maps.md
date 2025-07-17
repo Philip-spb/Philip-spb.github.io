@@ -7,6 +7,7 @@ nav_order: 9
 ---
 
 # ConfigMaps
+ConfigMaps are used in Kubernetes to store non-confidential data in key-value pairs. They allow you to decouple configuration artifacts from image content to keep containerized applications portable.
 
 ## Environment Variables
 
