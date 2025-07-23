@@ -10,6 +10,8 @@ nav_order: 1
 
 Summary of the course [Kubernetes Certified Application Developer (CKAD) with Tests](https://www.udemy.com/course/certified-kubernetes-application-developer/).
 
+Kubernetes official documentation: [Kubernetes Documentation](https://kubernetes.io/docs/home/)
+
 
 ## Formatting Output with kubectl
 To format the output of `kubectl` commands, you can use the `-o` or `--output` flag followed by the desired output format. Common output formats include:
@@ -31,4 +33,10 @@ kubectl get services -o json
 ### Example: Get Nodes in Wide Format
 ```bash
 kubectl get nodes -o wide
+```
+
+### watch
+To continuously watch for changes in resources, you can use the `--watch` or `-w` flag. This will keep the command running and update the output as changes occur.
+```bash
+kubectl get pods --watch
 ```
