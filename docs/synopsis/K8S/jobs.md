@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "jobs"
+title: "Jobs"
 grand_parent: "Конспекты"
 parent: "K8S"
 nav_order: 24
