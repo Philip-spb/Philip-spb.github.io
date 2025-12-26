@@ -18,10 +18,20 @@ Named API groups include resources that are grouped based on their functionality
 - **batch**: Contains resources for batch processing, such as Jobs and CronJobs. Accessible via `/apis/batch/v1/`.
 - **extensions**: Contains resources that extend the core functionality of Kubernetes, such as Ingress and NetworkPolicies. Accessible via `/apis/extensions/v1beta1/`.
 - **rbac.authorization.k8s.io**: Contains resources for role-based access control (RBAC), such as Roles and RoleBindings. Accessible via `/apis/rbac.authorization.k8s.io/v1/`.
+
 ## Example: Listing API Groups
 You can list all available API groups in your Kubernetes cluster using the following `kubectl` command
 ```shell
 kubectl api-versions
+```
+
+### Example: Accessing API Groups via Proxy
+
+```sh
+# Start the proxy
+kubectl proxy 8001&
+# List API groups
+curl localhost:8001/apis
 ```
 
 ## Kube API Server settings
