@@ -49,6 +49,8 @@ kind: Kustomization
 resources:
 - deployment.yaml
 - service.yaml
+- db/  # this is just an example of including a directory as a resource
+- api/
 patchesStrategicMerge:
 - deployment-patch.yaml
 images:
@@ -87,3 +89,105 @@ patchesStrategicMerge:
 ```
 
 This overlay applies a patch to the base deployment for the dev environment.
+
+## Transforming Resources
+Kustomize allows you to transform resources using various transformers, such as:
+
+- **commonLabels**: Adds common labels to all resources.
+- **namePrefix**: Adds a prefix to resource names.
+- **nameSuffix**: Adds a suffix to resource names.
+- **namespace**: Sets the namespace for all resources.
+- **commonAnnotations**: Adds common annotations to all resources.
+
+### Example: Common Labels Transformer
+
+db-service.yaml
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+    name: db-service
+    labels:
+        org: myorg
+spec:
+    selector:
+        org: myorg
+    ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
+```
+
+kustomization.yaml
+```yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- db-service.yaml
+commonLabels:
+  org: myorg
+```
+
+In this example, the `commonLabels` transformer adds the label `org: myorg` to all resources defined in the Kustomization file.
+
+### Example: Name Prefix and Name Suffix Transformer
+
+kustomization.yaml
+```yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+namePrefix: dev-
+```
+
+kustomization.yaml
+```yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+nameSuffix: -v1
+```
+
+
+### Example: Image Transformer
+
+kustomization.yaml
+```yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+images:
+- name: web
+  newTag: nginx
+```
+
+kustomization.yaml
+```yaml
+images:
+- name: ngnix
+  newName: haproxy
+```
+
+In this example, the `images` transformer updates the image tag for the `my-app` container in the deployment resource.
+
+Instead of using newName we can also use newTag to update only the tag of the image.
+
+kustomization.yaml
+```yaml
+images:
+- name: ngnix
+  newTag: 1.19
+```
+
+Also we can use both newName and newTag together to update both the image name and tag.
+kustomization.yaml
+```yaml
+images:
+- name: ngnix
+  newName: haproxy
+  newTag: 2.0
+```
+This will change the image from `ngnix:<old-tag>` to `haproxy:2.0`.
