@@ -150,7 +150,6 @@ resources:
 nameSuffix: -v1
 ```
 
-
 ### Example: Image Transformer
 
 kustomization.yaml
@@ -191,3 +190,159 @@ images:
   newTag: 2.0
 ```
 This will change the image from `ngnix:<old-tag>` to `haproxy:2.0`.
+
+## Patches
+
+Kustomize supports different types of patches to modify resources:
+
+- **Strategic Merge Patches**: Used for resources that support strategic merge patching.
+- **JSON Patches**: A more general patching mechanism that can be used with any resource.
+
+### Example: Json Patch
+deployment-patch.yaml
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  replicas: 5
+```
+
+kustomization.yaml
+```yaml
+patches:
+    - target:
+        kind: Deployment
+        name: my-app
+      patch: |-
+        op: replace
+        path: /spec/replicas
+        value: 2
+```
+
+### Example: Strategic Merge Patch
+
+We are taking the same deployment-patch.yaml as above.
+
+kustomization.yaml
+```yaml
+patches:
+- target:
+    kind: Deployment
+    name: my-app
+  patch: |
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: my-app
+    spec:
+      replicas: 2
+```
+
+### Examplae: Patches list JSON Patch
+
+api-deployment-patch.yaml
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  replicas: 3
+  template:
+    spec:
+      containers:
+      - name: api
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+```
+
+kustomization.yaml
+```yaml
+patches:
+- target:
+    kind: Deployment
+    name: api
+    patch: |-
+      op: replace
+      path: /spec/template/spec/containers/0/resources
+        value:
+            limits:
+                memory: "256Mi"
+                cpu: "500m"
+            requests:
+                memory: "128Mi"
+                cpu: "250m"
+```
+
+### Examplae: Patches list Strategic Merge Patch
+
+kustomization.yaml
+```yaml
+patches:
+- target:
+    kind: Deployment
+    name: api
+  patch: |
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: api
+    spec:
+      template:
+        spec:
+          containers:
+          - name: api
+            resources:
+              limits:
+                memory: "256Mi"
+                cpu: "500m"
+              requests:
+                memory: "128Mi"
+                cpu: "250m"
+```
+
+### Example: Delete list entries with Strategic Merge Patch
+
+api-deployment-patch.yaml
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: api
+  template:
+    metadata:
+      labels:
+        component: api
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+        - name: memcached
+          image: memcached
+```
+
+kustomization.yaml
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  template:
+    spec:
+      containers:
+        - $patch: delete
+          name: memcached
+```
