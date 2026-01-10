@@ -377,3 +377,69 @@ images:
 ```
 
 This overlay applies a patch to the base deployment for the production environment and updates the image tag for the `my-app` container.
+
+## Components
+Components are reusable pieces of configuration that can be included in multiple Kustomizations. They allow you to define common configurations that can be shared across different environments or applications.
+
+### Example: Component Structure
+
+```my-app/
+├── base/
+│   ├── deployment.yaml
+│   ├── service.yaml
+│   └── kustomization.yaml
+├── components/
+│   ├── logging/
+│   │   ├── fluentd-daemonset.yaml
+│   │   └── kustomization.yaml
+│   └── monitoring/
+│       ├── prometheus-deployment.yaml
+│       └── kustomization.yaml
+└── overlays/
+    ├── dev/
+    │   └── kustomization.yaml
+    └── prod/
+        └── kustomization.yaml
+```
+
+prometheus-deployment.yaml
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      containers:
+      - name: prometheus
+        image: prom/prometheus
+        ports:
+        - containerPort: 9090
+```
+
+kustomization.yaml
+```yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Component
+resources:
+- prometheus-deployment.yaml
+```
+
+### Example: Using Components in Kustomization
+In the `overlays/prod/kustomization.yaml` file, you can include the monitoring component:
+```yaml
+bases:
+- ../../base
+components:
+- ../../components/monitoring
+```
+
+This will include the Prometheus deployment defined in the monitoring component into the production overlay.
