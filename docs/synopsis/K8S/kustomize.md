@@ -346,3 +346,34 @@ spec:
         - $patch: delete
           name: memcached
 ```
+
+## Overlays
+
+Overlays allow you to create different configurations for different environments (e.g., development, staging, production) by layering customizations on top of a base configuration.
+
+### Example: Structure
+
+```
+my-app/
+├── base/
+│   ├── deployment.yaml
+├── overlays/
+│   ├── prod/
+│   │   └── kustomization.yaml
+│   └── dev/
+│       └── kustomization.yaml
+```
+
+### Example: Overlay Kustomization
+In the `overlays/prod/kustomization.yaml` file, you can specify customizations for the production environment:
+```yaml
+bases:
+- ../../base
+patchesStrategicMerge:
+- deployment-patch.yaml
+images:
+- name: my-app
+  newTag: v1.0.0
+```
+
+This overlay applies a patch to the base deployment for the production environment and updates the image tag for the `my-app` container.
