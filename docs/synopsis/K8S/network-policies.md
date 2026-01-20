@@ -93,3 +93,10 @@ spec:
     - protocol: TCP
       port: 3306
 ```
+
+### Checking connectivity
+```shell
+kubectl exec -it <pod-name> -- sh
+# Inside the pod, use curl or wget to test connectivity
+nc -v -z -w 2 <target-ip or target-hostname> <port>
+```
