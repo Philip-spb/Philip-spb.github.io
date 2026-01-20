@@ -21,6 +21,8 @@ metadata:
   name: math-add-job
 spec:
   completions: 3 # Number of successful completions required
+  backoffLimit: 25 # Number of retries before considering the job as failed
+  activeDeadlineSeconds: 2 # Maximum time in seconds the job is allowed to run
   template:
     spec:
       containers:
